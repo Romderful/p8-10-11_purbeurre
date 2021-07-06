@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SubstitutesConfig(AppConfig):
+class SnacksConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'substitutes'
+    name = 'snacks'
