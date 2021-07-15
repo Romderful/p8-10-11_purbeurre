@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "apps.home",
     # 'apps.snacks',
     # 'apps.favourites',
-    # 'apps.users',
+    "apps.users",
 ]
 
 MIDDLEWARE = [
