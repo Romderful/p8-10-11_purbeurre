@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # Custom apps
-    "widget_tweaks",
     # My apps
     "apps.home",
     # 'apps.snacks',
