@@ -1,23 +1,30 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 {% block content %}
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <form action="signup" method="POST">
-                {% csrf_token %}
+            <form method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form.visible_fields %}
                 <div class="form-group">
-                    <input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur">
+                {% if form.is_bound %}
+                    {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">
+                        {{ error }}
+                        </div>
+                    {% endfor %}
+                    {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                    {% endif %}
+                {% else %}
+                    {% render_field field class="form-control" %}
+                {% endif %}
                 </div>
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password0" class="form-control" placeholder="Mot de passe">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password1" class="form-control" placeholder="Confirmez mot de passe">
-                </div>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

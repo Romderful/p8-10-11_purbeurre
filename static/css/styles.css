@@ -2157,7 +2157,7 @@ progress {
 }
 
 .form-control {
-  margin: 0.5em;
+  margin-top: 1.5em;
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -2965,6 +2965,7 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
+  margin-top: 2em;
   color: #fff;
   background-color: #f4623a;
   border-color: #f4623a;
@@ -11020,4 +11021,8 @@ header.masthead h1, header.masthead .h1 {
 }
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+.helptext {
+  display: none;
 }
