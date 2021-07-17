@@ -2966,6 +2966,7 @@ textarea.form-control-lg {
 
 .btn-primary {
   margin-top: 2em;
+  margin-bottom: 2em;
   color: #fff;
   background-color: #f4623a;
   border-color: #f4623a;
@@ -7374,7 +7375,10 @@ textarea.form-control-lg {
 }
 
 .text-danger {
-  color: #dc3545 !important;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
 }
 
 .text-light {

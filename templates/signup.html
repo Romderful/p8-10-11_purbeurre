@@ -1,30 +1,19 @@
 {% extends "base.html" %}
-{% load widget_tweaks %}
 {% block content %}
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <form method="post" novalidate>
-            {% csrf_token %}
-            {% for field in form.visible_fields %}
-                <div class="form-group">
-                {% if form.is_bound %}
-                    {% if field.errors %}
-                    {% render_field field class="form-control is-invalid" %}
-                    {% for error in field.errors %}
-                        <div class="invalid-feedback">
-                        {{ error }}
-                        </div>
-                    {% endfor %}
-                    {% else %}
-                    {% render_field field class="form-control is-valid" %}
-                    {% endif %}
-                {% else %}
-                    {% render_field field class="form-control" %}
-                {% endif %}
-                </div>
-            {% endfor %}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{field}}
+                    <div class="text-danger">
+                        {{field.errors.as_text|cut:"*"}}
+                    </div>
+                    </div>
+                {% endfor %}
+            <button type="submit" class="btn btn-primary">Créez votre compte</button>
             </form>
         </div>
     </div>

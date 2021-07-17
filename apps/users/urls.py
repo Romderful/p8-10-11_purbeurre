@@ -1,3 +1,6 @@
+"""Users urls."""
+
+
 from django.urls import path
 from .views import sign_in, sign_up
 

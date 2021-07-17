@@ -3,8 +3,23 @@
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <p>form sign in</p>
-            <a href="/account/signup">Pas de compte ? créez en un !</a>
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{field}}
+                    </div>
+                {% endfor %}
+                {% for message in messages %}
+                    <div class="text-danger">
+                        {{message}}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <a href="/account/signup">
+                    <p>Pas de compte ? créez en un !</p>
+                </a>
+            </form>
         </div>
     </div>
 </header>
