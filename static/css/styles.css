@@ -11030,3 +11030,18 @@ header.masthead h1, header.masthead .h1 {
 .helptext {
   display: none;
 }
+
+.profile-informations {
+  text-align: center;
+  margin-top: 15%;
+}
+
+.username {
+  border-radius: 2em;
+  padding: 1.5em;
+  margin-bottom: 4em;
+  max-width: 15em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f4623a;
+}
