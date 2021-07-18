@@ -17,7 +17,7 @@ def sign_up(request):
             form.save()
             return redirect("/")
     context = {"form": form}
-    return render(request, "signup.html", context)
+    return render(request, "users/signup.html", context)
 
 
 def sign_in(request):
@@ -34,7 +34,7 @@ def sign_in(request):
             messages.error(request, "Identifiant ou mot de passe invalide :(.")
             return redirect("/account/signin")
     context = {"form": form}
-    return render(request, "signin.html", context)
+    return render(request, "users/signin.html", context)
 
 
 def sign_out(request):
@@ -47,4 +47,4 @@ def profile(request):
     """Profile view."""
     if not request.user.is_authenticated:
         return redirect("/account/signin")
-    return render(request, "profile.html")
+    return render(request, "users/profile.html")
