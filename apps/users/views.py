@@ -32,7 +32,7 @@ def sign_in(request):
             return redirect("/")
         else:
             messages.error(request, "Identifiant ou mot de passe invalide :(.")
-            return redirect("/account/signin")
+            return redirect("/users/sign_in")
     context = {"form": form}
     return render(request, "users/signin.html", context)
 
@@ -46,5 +46,5 @@ def sign_out(request):
 def profile(request):
     """Profile view."""
     if not request.user.is_authenticated:
-        return redirect("/account/signin")
+        return redirect("/users/sign_in")
     return render(request, "users/profile.html")

@@ -28,12 +28,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/account/profile">Mon compte</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/users/profile">Mon compte</a></li>
                         <li class="nav-item"><a class="nav-link" href="">Mes aliments</a></li>
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link" href="/account/signout">Se déconnecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/users/sign_out">Se déconnecter</a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link" href="/account/signin">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/users/sign_in">Se connecter</a></li>
                         {% endif %}
                     </ul>
                 </div>

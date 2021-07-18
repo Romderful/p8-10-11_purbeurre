@@ -21,5 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # My views
     path("", include("apps.home.urls")),
-    path("account/", include("apps.users.urls")),
+    path("users/", include("apps.users.urls")),
 ]
