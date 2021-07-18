@@ -41,3 +41,10 @@ def sign_out(request):
     """Sign out view."""
     auth.logout(request)
     return redirect("/")
+
+
+def profile(request):
+    """Profile view."""
+    if not request.user.is_authenticated:
+        return redirect("/account/signin")
+    return render(request, "profile.html")
