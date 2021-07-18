@@ -35,3 +35,9 @@ def sign_in(request):
             return redirect("/account/signin")
     context = {"form": form}
     return render(request, "signin.html", context)
+
+
+def sign_out(request):
+    """Sign out view."""
+    auth.logout(request)
+    return redirect("/")
