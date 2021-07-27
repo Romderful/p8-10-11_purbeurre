@@ -97,7 +97,6 @@ def main():
         carbohydrates = None
         sugars = None
         salt = None
-        fibers = None
 
         if "fat_100g" in product[NUTRIMENTS]:
             fats = product[NUTRIMENTS]["fat_100g"]
@@ -109,8 +108,6 @@ def main():
             sugars = product[NUTRIMENTS]["sugars_100g"]
         if "salt_100g" in product[NUTRIMENTS]:
             salt = product[NUTRIMENTS]["salt_100g"]
-        if "fibers_100g" in product[NUTRIMENTS]:
-            fibers = product[NUTRIMENTS]["fibers_100g"]
 
         product = Product.objects.create(
             name=product[NAME],
@@ -124,7 +121,6 @@ def main():
             carbohydrates=carbohydrates,
             sugars=sugars,
             salt=salt,
-            fibers=fibers,
         )
 
         for category in categories:

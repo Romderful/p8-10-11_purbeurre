@@ -24,5 +24,4 @@ class Product(models.Model):
     sugars = models.FloatField(null=True)
     fats = models.FloatField(null=True)
     proteins = models.FloatField(null=True)
-    fibers = models.FloatField(null=True)
     categories = models.ManyToManyField(Category)
