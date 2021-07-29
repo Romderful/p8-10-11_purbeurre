@@ -33,19 +33,29 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><input class="form-control mr-sm-2" type="search" placeholder="Chercher..."
-                            aria-label="Search"></li>
-                    <li class="nav-item"><a href="/users/profile"><img class="my-logos"
-                                src="{% static 'assets/img/noun_profile.png' %}"></img></a></li>
-                    <li class="nav-item"><a href=""><img class="my-logos"
-                                src="{% static 'assets/img/noun_carrot.png' %}"></img></a></li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a href="/users/sign_out"><img class="my-logos"
-                                src="{% static 'assets/img/noun_login.png' %}"></img></a></li>
-                    {% else %}
-                    <li class="nav-item"><a href="/users/sign_in"><img class="my-logos"
-                                src="{% static 'assets/img/noun_login.png' %}"></img></a></li>
-                    {% endif %}
+                    <li class="nav-item align-nav-searchbar"><input class="form-control mr-sm-2" type="search"
+                            placeholder="Chercher..." aria-label="Search"></li>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <li class="nav-item align-logos"><a href="/users/profile"><img class="my-logos"
+                                            src="{% static 'assets/img/noun_profile.png' %}"></img></a></li>
+                            </div>
+                            <div class="col-4">
+                                <li class="nav-item align-logos"><a href=""><img class="my-logos"
+                                            src="{% static 'assets/img/noun_carrot.png' %}"></img></a></li>
+                            </div>
+                            <div class="col-4">
+                                {% if user.is_authenticated %}
+                                <li class="nav-item align-logos"><a href="/users/sign_out"><img class="my-logos"
+                                            src="{% static 'assets/img/noun_login.png' %}"></img></a></li>
+                                {% else %}
+                                <li class="nav-item align-logos"><a href="/users/sign_in"><img class="my-logos"
+                                            src="{% static 'assets/img/noun_login.png' %}"></img></a></li>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>

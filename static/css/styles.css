@@ -644,7 +644,6 @@ progress {
 }
 .row > * {
   flex-shrink: 0;
-  min-width: 40%;
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) * .5);
   padding-left: calc(var(--bs-gutter-x) * .5);
@@ -3979,6 +3978,8 @@ textarea.form-control-lg {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
+  margin-top: 1em;
+  margin-left: 1em;
   font-size: 1.25rem;
   text-decoration: none;
   white-space: nowrap;
@@ -11047,13 +11048,23 @@ header.masthead h1, header.masthead .h1 {
 
 .my-logos {
   width: 2.5em;
-  margin-right: 1em;
+  margin-top: 1em;
+}
+
+.align-logos {
+  text-align: center;
 }
 
 .mr-sm-2 {
   margin: auto;
   width: 11em;
-  margin-right: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.align-nav-searchbar {
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .colette-remy-description {
