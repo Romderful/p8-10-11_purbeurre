@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <!-- Masthead-->
 <header class="masthead">
@@ -43,7 +44,14 @@
                     compté, entre deux verres, qu’il était difficile de trouver des substituts
                     aux cochonneries que nous mangions dès le petit déjeuner. Pourquoi ne pas lancer une plateforme web
                     en ce sens ? Voici votre mission !</p>
-                <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="colette-image" src="{% static 'assets/img/colette.png' %}" />
+                    </div>
+                    <div class="col-md-6">
+                        <img class="remy-image" src="{% static 'assets/img/remy.png' %}" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
