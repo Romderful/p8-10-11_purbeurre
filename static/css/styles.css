@@ -11086,3 +11086,7 @@ header.masthead h1, header.masthead .h1 {
   width: 15em;
   margin-top: 7em;
 }
+
+.sign-form {
+  min-width: 30%;
+}
