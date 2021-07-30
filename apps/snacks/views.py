@@ -7,10 +7,13 @@ from .models import Product
 
 def search(request):
     """Research a product."""
-    query = request.GET.get("query")
-    if not query:
-        products = Product.objects.all()
-    else:
+    try:
+        query = request.GET.get("query")
+        if not query:
+            return render(request, "snacks/notfound.html")
         products = Product.objects.filter(name__icontains=query)
-    context = {"products": products}
-    return render(request, "snacks/search.html", context)
+        product = products[0]
+        context = {"product": product}
+        return render(request, "snacks/search.html", context)
+    except IndexError:
+        return render(request, "snacks/notfound.html")
