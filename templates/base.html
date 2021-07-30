@@ -33,8 +33,11 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item align-nav-searchbar"><input class="form-control mr-sm-2" type="search"
-                            placeholder="Chercher..." aria-label="Search"></li>
+                    <li class="nav-item align-nav-searchbar">
+                        <form method="GET" action="{% url "search" %}">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Chercher..." aria-label="Search" name="query">
+                        </form>
+                    </li>
                     <div class="container">
                         <div class="row">
                             <div class="col-4">
