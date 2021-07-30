@@ -22,4 +22,5 @@ urlpatterns = [
     # My views
     path("", include("apps.home.urls")),
     path("users/", include("apps.users.urls")),
+    path("snacks/", include("apps.snacks.urls")),
 ]

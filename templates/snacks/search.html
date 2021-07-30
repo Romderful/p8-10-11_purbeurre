@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="masthead">
+    <div class="container">
+        {% for product in products %}
+            {{product.name}}
+        {% endfor %}
+    </div>
+</header>
+{% endblock %}
