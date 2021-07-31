@@ -5,8 +5,8 @@ from django.shortcuts import render
 from .models import Product
 
 
-def search(request):
-    """Research a product."""
+def search_product(request):
+    """Search a product."""
     try:
         query = request.GET.get("query")
         if not query:
