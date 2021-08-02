@@ -7,7 +7,7 @@ from django.db import models
 class Category(models.Model):
     """Category table."""
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
 
 class Product(models.Model):
@@ -25,3 +25,21 @@ class Product(models.Model):
     fats = models.FloatField(null=True)
     proteins = models.FloatField(null=True)
     categories = models.ManyToManyField(Category)
+
+    def get_substitutes(self, product):
+        """Return the substitutes queryset."""
+        cleaned_substitutes = []
+        substitute_categories = []
+        product_categories = product.categories.all()
+
+        for category in product_categories:
+            substitute_categories.append(category.id)
+        print(substitute_categories)
+
+        my_substitutes = Product.objects.filter(categories__in=substitute_categories)
+
+        for substitute in my_substitutes:
+            if substitute not in cleaned_substitutes:
+                cleaned_substitutes.append(substitute)
+
+        return cleaned_substitutes

@@ -8,7 +8,12 @@
                 <img class="product-images" src="{{product.image}}">
             </ul>
         </div>
-        <p class="text-white-75 mb-4">Vous pouvez remplacer cet aliment par :</p>
+        <div class="container">
+            <p class="text-white-75 mb-4">Vous pouvez remplacer cet aliment par :</p>
+        </div>
+        {% for substitute in my_substitutes %}
+            {{substitute}}
+        {% endfor %}
     </div>
 </header>
 {% endblock %}

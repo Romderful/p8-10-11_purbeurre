@@ -94,9 +94,6 @@ class Command(BaseCommand):
         self.valid_products = self.valid_products[: self.max_products]
 
         for product in self.valid_products:
-            categories = [
-                category.strip().lower() for category in product[CATEGORIES].split(",")
-            ]
 
             fats = None
             proteins = None
@@ -115,7 +112,7 @@ class Command(BaseCommand):
             if "salt_100g" in product[NUTRIMENTS]:
                 salt = product[NUTRIMENTS]["salt_100g"]
 
-            product = Product.objects.create(
+            created_product = Product.objects.create(
                 name=product[NAME],
                 description=product[DESCRIPTION],
                 store=product[STORE],
@@ -129,6 +126,12 @@ class Command(BaseCommand):
                 salt=salt,
             )
 
+            categories = [
+                category.strip().lower() for category in product[CATEGORIES].split(",")
+            ]
+
             for category in categories:
-                category = Category.objects.create(name=category)
-                product.categories.add(category)
+                created_category, created = Category.objects.update_or_create(
+                    name=category
+                )
+                created_product.categories.add(created_category)

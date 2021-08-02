@@ -8,7 +8,7 @@ from django.urls import reverse
 class TestViews(TestCase):
     """Test the views."""
 
-    def test_home_GET(self):
+    def test_home_get(self):
         """Test sign_up view."""
         client = Client()
         response = client.get(reverse("home"))
