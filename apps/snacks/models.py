@@ -34,7 +34,6 @@ class Product(models.Model):
 
         for category in product_categories:
             substitute_categories.append(category.id)
-        print(substitute_categories)
 
         my_substitutes = Product.objects.filter(categories__in=substitute_categories)
 
@@ -42,4 +41,4 @@ class Product(models.Model):
             if substitute not in cleaned_substitutes and substitute != product:
                 cleaned_substitutes.append(substitute)
 
-        return cleaned_substitutes[:7]
+        return cleaned_substitutes[:6]
