@@ -39,7 +39,7 @@ class Product(models.Model):
         my_substitutes = Product.objects.filter(categories__in=substitute_categories)
 
         for substitute in my_substitutes:
-            if substitute not in cleaned_substitutes:
+            if substitute not in cleaned_substitutes and substitute != product:
                 cleaned_substitutes.append(substitute)
 
-        return cleaned_substitutes
+        return cleaned_substitutes[:7]
