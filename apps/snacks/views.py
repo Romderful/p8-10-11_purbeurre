@@ -13,7 +13,10 @@ def search_product(request):
         if not query:
             raise IndexError
         product = Product.objects.filter(name__icontains=query).first()
-        my_substitutes = product_found.get_substitutes(product)
+        try:
+            my_substitutes = product_found.get_substitutes(product)
+        except AttributeError:
+            return render(request, "snacks/notfound.html")
         context = {"product": product, "my_substitutes": my_substitutes}
         return render(request, "snacks/search.html", context)
     except IndexError:
