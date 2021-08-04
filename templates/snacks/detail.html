@@ -1,9 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <header class="masthead">
-    <div class="container px-4 px-lg-5 h-100">
-        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <h2 class="text-white-75 mb-4">{{product.name}}</h1>
+    <div class="row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
+        <div class="product-result">
+            <h2 class="text-white-75 mb-4">{{product.name}}</h2>
+            <img class="product-images" src="{{product.image}}">
+        </div>
+    </div>
+    <div class="container row">
+        <div class="container detail-substitute col-lg-6 text-center">
+            <h4 class="text-white-75 mb-4">Nutriscore</h4>
+            {% if product.grade == "a" %}
+            <img class="nutriscore_image" src="{% static 'assets/img/Nutri-score-A.svg' %}">
+            {% elif product.grade == "b" %}
+            <img class="nutriscore_image" src="{% static 'assets/img/Nutri-score-B.svg' %}">
+            {% elif product.grade == "c" %}
+            <img class="nutriscore_image" src="{% static 'assets/img/Nutri-score-C.svg' %}">
+            {% elif product.grade == "d" %}
+            <img class="nutriscore_image" src="{% static 'assets/img/Nutri-score-D.svg' %}">
+            {% elif product.grade == "e" %}
+            <img class="nutriscore_image" src="{% static 'assets/img/Nutri-score-E.svg' %}">
+            {% endif %}
+        </div>
+        <div class="container col-lg-6 text-center">
+            <h4 class="text-white-75 mb-4">Repères nutritionnels pour 100g :</h4>
+            <p class="text-white-75">{{product.salt}} de sel</p>
+            <p class="text-white-75">{{product.carbohydrates}} de glucides</p>
+            <p class="text-white-75">{{product.sugars}} de sucre</p>
+            <p class="text-white-75">{{product.fats}} de gras</p>
+            <p class="text-white-75">{{product.proteins}} de protéines</p>
         </div>
     </div>
 </header>

@@ -11127,7 +11127,11 @@ header.masthead h1, header.masthead .h1 {
   padding-left: 0px;
 }
 
-.nutriscore_image {
+.nutriscore-image-search {
   width: 6em;
   margin-left: 65%;
+}
+
+.detail-substitute {
+  margin-bottom: 3em;
 }
