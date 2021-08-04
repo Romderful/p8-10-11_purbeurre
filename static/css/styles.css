@@ -11093,6 +11093,7 @@ header.masthead h1, header.masthead .h1 {
 
 .product-images {
   border-radius: 1.5em;
+  margin-top: 3em;
   margin-bottom: 2em;
   max-width: 15em;
   max-height: 15em;
@@ -11124,4 +11125,9 @@ header.masthead h1, header.masthead .h1 {
   max-width: 100%;
   padding-right: 0px;
   padding-left: 0px;
+}
+
+.nutriscore_image {
+  width: 6em;
+  margin-left: 65%;
 }
