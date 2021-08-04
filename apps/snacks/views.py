@@ -6,7 +6,7 @@ from .models import Product
 
 
 def search_product(request):
-    """Search a product."""
+    """Return the search page which contains the requested product with its substitutes."""
     product_found = Product()
     try:
         query = request.GET.get("query")
@@ -18,3 +18,10 @@ def search_product(request):
         return render(request, "snacks/search.html", context)
     except IndexError:
         return render(request, "snacks/notfound.html")
+
+
+def detail_product(request, substitute_id):
+    """Return the selected product detail page."""
+    product = Product.objects.get(pk=substitute_id)
+    context = {"product": product}
+    return render(request, "snacks/detail.html", context)
