@@ -11139,3 +11139,7 @@ header.masthead h1, header.masthead .h1 {
 .detail-url {
   margin-top: 2.5em;
 }
+
+.pagination {
+  margin: 4em;
+}

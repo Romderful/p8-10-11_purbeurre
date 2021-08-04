@@ -2,6 +2,7 @@
 
 
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import Product
 
 
@@ -14,10 +15,13 @@ def search_product(request):
             raise IndexError
         product = Product.objects.filter(name__icontains=query).first()
         try:
-            my_substitutes = product_found.get_substitutes(product)
+            substitutes_list = product_found.get_substitutes(product)
+            paginator = Paginator(substitutes_list, 6)
+            page = request.GET.get("page")
+            substitutes = paginator.get_page(page)
         except AttributeError:
             return render(request, "snacks/notfound.html")
-        context = {"product": product, "my_substitutes": my_substitutes}
+        context = {"product": product, "substitutes": substitutes, "query": query}
         return render(request, "snacks/search.html", context)
     except IndexError:
         return render(request, "snacks/notfound.html")

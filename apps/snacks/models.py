@@ -31,14 +31,10 @@ class Product(models.Model):
         cleaned_substitutes = []
         substitute_categories = []
         product_categories = product.categories.all()
-
         for category in product_categories:
             substitute_categories.append(category.id)
-
         my_substitutes = Product.objects.filter(categories__in=substitute_categories)
-
         for substitute in my_substitutes:
             if substitute not in cleaned_substitutes and substitute != product:
                 cleaned_substitutes.append(substitute)
-
-        return cleaned_substitutes[:6]
+        return cleaned_substitutes
