@@ -11093,6 +11093,7 @@ header.masthead h1, header.masthead .h1 {
 
 .product-images {
   border-radius: 1.5em;
+  margin-bottom: 2em;
   max-width: 15em;
   max-height: 15em;
 }
@@ -11112,4 +11113,15 @@ header.masthead h1, header.masthead .h1 {
   max-width: 90%;
   padding: 2em;
   margin: 3em;
+}
+
+.replace-text {
+  background-color: #f4623a;
+  padding: 1em;
+}
+
+.replace-text-wrapper {
+  max-width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
 }
