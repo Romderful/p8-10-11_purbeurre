@@ -3,8 +3,11 @@
 
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib import auth
-from .forms import SignupForm, SigninForm
+from django.contrib.auth import authenticate, login, logout
+from .forms import SignupForm
+
+
+BACKEND = "apps.users.authenticate.EmailAuthenticate"
 
 
 # Create your views here.
@@ -22,24 +25,22 @@ def sign_up(request):
 
 def sign_in(request):
     """Sign in view."""
-    form = SigninForm()
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = auth.authenticate(username=username, password=password)
+        email = request.POST["email"]
+        password = request.POST["password"]
+        user = authenticate(email=email, password=password)
         if user is not None:
-            auth.login(request, user)
+            login(request, user)
             return redirect("/")
         else:
             messages.error(request, "Identifiant ou mot de passe invalide :(.")
             return redirect("/users/sign_in")
-    context = {"form": form}
-    return render(request, "users/signin.html", context)
+    return render(request, "users/signin.html")
 
 
 def sign_out(request):
     """Sign out view."""
-    auth.logout(request)
+    logout(request)
     return redirect("/")
 
 
