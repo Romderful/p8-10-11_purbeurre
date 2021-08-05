@@ -1,4 +1,4 @@
-"""Users view."""
+"""Users views."""
 
 
 from django.contrib import messages
