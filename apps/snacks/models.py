@@ -3,6 +3,8 @@
 
 from django.db import models
 
+from django.contrib.auth.models import User
+
 
 class Category(models.Model):
     """Category table."""
@@ -38,3 +40,10 @@ class Product(models.Model):
             if substitute not in cleaned_substitutes and substitute != product:
                 cleaned_substitutes.append(substitute)
         return cleaned_substitutes
+
+
+class Substitute(models.Model):
+    """Substitute table."""
+
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)

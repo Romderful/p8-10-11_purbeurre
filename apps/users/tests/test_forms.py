@@ -2,7 +2,7 @@
 
 
 from django.test.testcases import TestCase
-from apps.users.forms import SigninForm, SignupForm
+from apps.users.forms import SignupForm
 
 
 class TestForms(TestCase):
@@ -25,9 +25,3 @@ class TestForms(TestCase):
         form = SignupForm(data={})
         self.assertFalse(form.is_valid())
         self.assertEquals(len(form.errors), 4)
-
-    def test_sign_in_form_no_data(self):
-        """Test sign in form no data."""
-        form = SigninForm(data={})
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 2)

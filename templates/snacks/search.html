@@ -26,8 +26,9 @@
         {% elif substitute.grade == "e" %}
         <img class="nutriscore-image-search" src="{% static 'assets/img/Nutri-score-E.svg' %}">
         {% endif %}
-        <a href="{% url "detail_product" substitute_id=substitute.id %}"><img class="product-images" src="{{substitute.image}}"></a>
+        <a href="{% url "detail_product" id=substitute.id %}"><img class="product-images" src="{{substitute.image}}"></a>
         <p class="text-white-75 mb-4">{{substitute.name}}</p>
+        <a href="save/{{substitute.id}}"><h6>Sauvegarder</h6></a>
     </div>
     {% endfor %}
 </div>

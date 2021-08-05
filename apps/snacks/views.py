@@ -1,9 +1,11 @@
 """Snacks views."""
 
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
-from .models import Product
+from .models import Product, Substitute
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 def search_product(request):
@@ -27,8 +29,19 @@ def search_product(request):
         return render(request, "snacks/notfound.html")
 
 
-def detail_product(request, substitute_id):
+def detail_product(request, id):
     """Return the selected product detail page."""
-    product = Product.objects.get(pk=substitute_id)
+    product = Product.objects.get(pk=id)
     context = {"product": product}
     return render(request, "snacks/detail.html", context)
+
+
+@login_required
+def save_substitute(request, id):
+    """Test."""
+    user_email = request.session["user_email"]
+    user = User.objects.get(email=user_email)
+    product = Product.objects.get(id=id)
+    if not Substitute.objects.filter(user=user, product=product).exists():
+        Substitute.objects.create(user=user, product=product)
+    return redirect(request.META["HTTP_REFERER"])

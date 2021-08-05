@@ -31,6 +31,7 @@ def sign_in(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
+            request.session["user_email"] = user.email
             return redirect("/")
         else:
             messages.error(request, "Identifiant ou mot de passe invalide :(.")
