@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     # My apps
     "apps.home",
     "apps.snacks",
-    # 'apps.favourites',
+    "apps.favourites",
     "apps.users",
 ]
 
