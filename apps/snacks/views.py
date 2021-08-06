@@ -39,7 +39,7 @@ def detail_product(request, id):
 
 @login_required
 def save_substitute(request, id):
-    """Test."""
+    """Save the wanted substitute."""
     user_email = request.session["user_email"]
     user = User.objects.get(email=user_email)
     product = Product.objects.get(id=id)

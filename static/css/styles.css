@@ -11099,6 +11099,12 @@ header.masthead h1, header.masthead .h1 {
   max-height: 15em;
 }
 
+.favourite-images {
+  border-radius: 1.5em;
+  max-height: 2em;
+  margin-right: 5%;
+}
+
 .product-result {
   background-color: rgb(0, 0, 0, 0.2);
   border-radius: 2em;
@@ -11114,6 +11120,16 @@ header.masthead h1, header.masthead .h1 {
   max-width: 90%;
   padding: 2em;
   margin: 3em;
+}
+
+.favourite-result {
+  display: flex;
+  background-color: rgb(0, 0, 0, 0.2);
+  border-radius: 2em;
+  max-width: 90%;
+  padding: 1em;
+  padding-left: 10%;
+  margin-bottom: 1em;
 }
 
 .replace-text {
@@ -11149,4 +11165,14 @@ header.masthead h1, header.masthead .h1 {
   margin: auto;
   width: fit-content;
   border-radius: 0.5em;
+}
+
+.favourite-wrapper {
+  margin-top: 6%;
+  max-height: 50%;
+}
+
+.favourite-text {
+  text-align: center;
+  margin-bottom: 0px;
 }

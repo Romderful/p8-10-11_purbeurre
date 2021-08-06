@@ -1,10 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 <header class="masthead">
-    <div class="container px-4 px-lg-5 h-100">
-        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-            <p>YOOOOOOOO</p>
+    <div class="container favourite-wrapper px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center">
+        {% for favourite in favourites %}
+            <div class="col-lg-12 favourite-result">
+                <img class="favourite-images" src="{{favourite.image}}">
+                <p class="text-white-75 favourite-text">{{favourite.name}}</p>
+            </div>
+        {% endfor %}
         </div>
     </div>
 </header>
+<div class="pagination row gx-4 gx-lg-5 align-items-center justify-content-center text-center">
+    <span class="step-links">
+        {% if favourites.has_previous %}
+            <a href="?query={{query}}&page=1">&laquo; première</a>
+            <a href="?query={{query}}&page={{ favourites.previous_page_number }}">précédente</a>
+        {% endif %}
+        <span class="current">
+            Page {{ favourites.number }} sur {{ favourites.paginator.num_pages }}.
+        </span>
+        {% if favourites.has_next %}
+            <a href="?query={{query}}&page={{ favourites.next_page_number }}">suivante &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
