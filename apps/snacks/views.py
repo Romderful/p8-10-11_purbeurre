@@ -1,6 +1,7 @@
 """Snacks views."""
 
 
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Product, Substitute
@@ -43,5 +44,8 @@ def save_substitute(request, id):
     user = User.objects.get(email=user_email)
     product = Product.objects.get(id=id)
     if not Substitute.objects.filter(user=user, product=product).exists():
+        messages.success(request, "Article enregistré !")
         Substitute.objects.create(user=user, product=product)
+    else:
+        messages.error(request, "Article déjà possédé ! ")
     return redirect(request.META["HTTP_REFERER"])

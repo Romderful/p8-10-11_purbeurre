@@ -11119,6 +11119,7 @@ header.masthead h1, header.masthead .h1 {
 .replace-text {
   background-color: #f4623a;
   padding: 1em;
+  margin-bottom: 2em;
 }
 
 .replace-text-wrapper {
@@ -11142,4 +11143,10 @@ header.masthead h1, header.masthead .h1 {
 
 .pagination {
   margin: 4em;
+}
+
+.add-article {
+  margin: auto;
+  width: fit-content;
+  border-radius: 0.5em;
 }
