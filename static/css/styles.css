@@ -11189,3 +11189,8 @@ header.masthead h1, header.masthead .h1 {
 .vh100-header {
   height: 100vh;
 }
+
+.legal-notice-wrapper {
+  max-height: 80%;
+  margin-top: 9%;
+}
