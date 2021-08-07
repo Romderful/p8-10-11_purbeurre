@@ -11097,8 +11097,7 @@ header.masthead h1, header.masthead .h1 {
   border-radius: 1.5em;
   margin-top: 3em;
   margin-bottom: 2em;
-  max-width: 15em;
-  max-height: 15em;
+  max-height: 12em;
 }
 
 .favourite-images {
@@ -11112,7 +11111,7 @@ header.masthead h1, header.masthead .h1 {
   border-radius: 2em;
   width: 90%;
   padding: 2em;
-  margin-top: 3%;
+  margin-top: 5%;
   margin-bottom: 2em;
 }
 

@@ -4,13 +4,13 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import SignupForm
 
 
 BACKEND = "apps.users.authenticate.EmailAuthenticate"
 
 
-# Create your views here.
 def sign_up(request):
     """Return sign up html template."""
     form = SignupForm()
@@ -32,7 +32,10 @@ def sign_in(request):
         if user is not None:
             login(request, user)
             request.session["user_email"] = user.email
-            return redirect("/")
+            if "next" in request.POST:
+                return redirect(request.POST["next"])
+            else:
+                return redirect("/")
         else:
             messages.error(request, "Identifiant ou mot de passe invalide :(.")
             return redirect("/users/sign_in")
@@ -45,8 +48,7 @@ def sign_out(request):
     return redirect("/")
 
 
+@login_required
 def profile(request):
     """Profile view."""
-    if not request.user.is_authenticated:
-        return redirect("/users/sign_in")
     return render(request, "users/profile.html")

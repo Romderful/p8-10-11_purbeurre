@@ -37,15 +37,21 @@ def detail_product(request, id):
     return render(request, "snacks/detail.html", context)
 
 
-@login_required
 def save_substitute(request, id):
     """Save the wanted substitute."""
-    user_email = request.session["user_email"]
-    user = User.objects.get(email=user_email)
-    product = Product.objects.get(id=id)
-    if not Substitute.objects.filter(user=user, product=product).exists():
-        messages.success(request, "Article enregistré !")
-        Substitute.objects.create(user=user, product=product)
+    if not request.user.is_authenticated:
+        messages.error(
+            request,
+            "Vous devez être authentifié pour pouvoir utiliser cette fonction !",
+        )
+        return redirect(request.META["HTTP_REFERER"])
     else:
-        messages.error(request, "Article déjà possédé ! ")
-    return redirect(request.META["HTTP_REFERER"])
+        user_email = request.session["user_email"]
+        user = User.objects.get(email=user_email)
+        product = Product.objects.get(id=id)
+        if not Substitute.objects.filter(user=user, product=product).exists():
+            messages.success(request, "Article enregistré !")
+            Substitute.objects.create(user=user, product=product)
+        else:
+            messages.error(request, "Article déjà possédé ! ")
+        return redirect(request.META["HTTP_REFERER"])

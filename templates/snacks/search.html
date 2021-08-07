@@ -5,7 +5,7 @@
     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
         <div class="product-result">
             <h2 class="text-white-75 mb-4">{{product.name}}</h2>
-            <img class="product-images" src="{{product.image}}">
+            <img class="product-images img-fluid" src="{{product.image}}">
         </div>
     </div>
 </header>
@@ -29,7 +29,7 @@
         {% elif substitute.grade == "e" %}
         <img class="nutriscore-image-search" src="{% static 'assets/img/Nutri-score-E.svg' %}">
         {% endif %}
-        <a href="{% url "detail_product" id=substitute.id %}"><img class="product-images" src="{{substitute.image}}"></a>
+        <a href="{% url "detail_product" id=substitute.id %}"><img class="product-images img-fluid" src="{{substitute.image}}"></a>
         <p class="text-white-75 mb-4">{{substitute.name}}</p>
         <a href="save/{{substitute.id}}/">Sauvegarder</a>
     </div>
