@@ -6,7 +6,6 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Product, Substitute
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 
 
 def search_product(request):
@@ -39,19 +38,12 @@ def detail_product(request, id):
 
 def save_substitute(request, id):
     """Save the wanted substitute."""
-    if not request.user.is_authenticated:
-        messages.error(
-            request,
-            "Vous devez être authentifié pour pouvoir utiliser cette fonction !",
-        )
-        return redirect(request.META["HTTP_REFERER"])
+    user_email = request.session["user_email"]
+    user = User.objects.get(email=user_email)
+    product = Product.objects.get(id=id)
+    if not Substitute.objects.filter(user=user, product=product).exists():
+        messages.success(request, "Article enregistré !")
+        Substitute.objects.create(user=user, product=product)
     else:
-        user_email = request.session["user_email"]
-        user = User.objects.get(email=user_email)
-        product = Product.objects.get(id=id)
-        if not Substitute.objects.filter(user=user, product=product).exists():
-            messages.success(request, "Article enregistré !")
-            Substitute.objects.create(user=user, product=product)
-        else:
-            messages.error(request, "Article déjà possédé ! ")
-        return redirect(request.META["HTTP_REFERER"])
+        messages.error(request, "Article déjà possédé ! ")
+    return redirect(request.META["HTTP_REFERER"])

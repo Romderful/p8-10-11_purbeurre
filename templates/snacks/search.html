@@ -31,7 +31,11 @@
         {% endif %}
         <a href="{% url "detail_product" id=substitute.id %}"><img class="product-images img-fluid" src="{{substitute.image}}"></a>
         <p class="text-white-75 mb-4">{{substitute.name}}</p>
+        {% if user.is_authenticated %}
         <a href="save/{{substitute.id}}/">Sauvegarder</a>
+        {% else %}
+        <a href="/users/sign_in/?next={{request.get_full_path|urlencode}}">s'authentifier</a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>
