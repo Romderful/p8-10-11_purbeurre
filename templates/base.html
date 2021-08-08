@@ -41,19 +41,19 @@
                     <div class="container logos-wrapper">
                         <div class="row">
                             <div class="col-4">
-                                <li class="nav-item align-logos"><a class="nav-text" href="/users/profile"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "profile" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_profile.png' %}"></img><p class="nav-link">Compte</p></a></li>
                             </div>
                             <div class="col-4">
-                                <li class="nav-item align-logos"><a class="nav-text" href="/favourites/my_favourites"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "my_favourites" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_carrot.png' %}"></img><p class="nav-link">Aliments</p></a></li>
                             </div>
                             <div class="col-4">
                                 {% if user.is_authenticated %}
-                                <li class="nav-item align-logos"><a class="nav-text" href="/users/sign_out"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "sign_out" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_login.png' %}"></img><p class="nav-link">Déconnecter</p></a></li>
                                 {% else %}
-                                <li class="nav-item align-logos"><a class="nav-text" href="/users/sign_in"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "sign_in" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_login.png' %}"></img><p class="nav-link">Connecter</p></a></li>
                                 {% endif %}
                             </div>
@@ -69,7 +69,7 @@
     <footer class="bg-light py-5">
         <div class="row">
             <div class="col-4 container px-4 px-lg-5">
-                <div class="small text-center text-muted"><a href="legal_notice/">Mentions légales</a></div>
+                <div class="small text-center text-muted"><a href="{% url "legal_notice" %}">Mentions légales</a></div>
             </div>
             <div class="col-4 container px-4 px-lg-5">
                 <div class="small text-center text-muted">Copyright &copy; 2021 - PurBeurre</div>

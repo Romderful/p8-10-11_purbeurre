@@ -18,7 +18,7 @@
                     <input type="hidden" name="next" value="{{request.GET.next}}"/>
                 {% endif %}
                 <button type="submit" class="btn btn-primary">Se connecter</button>
-                <a href="/users/sign_up">
+                <a href="{% url "sign_up" %}">
                     <p>Pas de compte ? créez en un !</p>
                 </a>
             </form>
