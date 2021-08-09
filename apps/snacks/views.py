@@ -40,7 +40,7 @@ def save_substitute(request, id):
     """Save the wanted substitute."""
     user_email = request.session["user_email"]
     user = User.objects.get(email=user_email)
-    product = Product.objects.get(id=id)
+    product = Product.objects.get(pk=id)
     if not Substitute.objects.filter(user=user, product=product).exists():
         messages.success(request, "Article enregistré !")
         Substitute.objects.create(user=user, product=product)
