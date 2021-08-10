@@ -1,8 +1,12 @@
 """Users models."""
 
 
-from django.contrib.auth.models import User
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
 
 
-# Create your models here.
-User._meta.get_field("email").blank = False
+class User(AbstractUser):
+    """Class User."""
+
+    email = models.EmailField(_("email"), blank=True, unique=True)

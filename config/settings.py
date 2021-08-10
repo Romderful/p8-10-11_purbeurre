@@ -144,3 +144,5 @@ SESSION_COOKIE_AGE = 1800
 
 AUTHENTICATION_BACKENDS = ["apps.users.authenticate.EmailAuthenticate"]
 LOGIN_URL = "/users/sign_in"
+
+AUTH_USER_MODEL = "users.User"
