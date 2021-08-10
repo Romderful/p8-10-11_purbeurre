@@ -29,7 +29,7 @@ class TestForms(TestCase):
         """Test sign up form no data."""
         form = SignupForm(data={})
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 4)
+        self.assertEquals(len(form.errors), 3)
 
 
 class MySeleniumTests(LiveServerTestCase):
