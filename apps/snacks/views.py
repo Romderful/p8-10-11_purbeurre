@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Product, Substitute
-from django.contrib.auth.models import User
+from apps.users.models import User
 
 
 def search_product(request):

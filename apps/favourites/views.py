@@ -2,7 +2,7 @@
 
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from apps.users.models import User
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from apps.snacks.models import Substitute

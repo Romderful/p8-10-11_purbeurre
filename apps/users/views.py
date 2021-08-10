@@ -31,7 +31,7 @@ def sign_in(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-            request.session["user_email"] = user.email
+            request.session["user_email"] = user.email  # type: ignore
             if "next" in request.POST:
                 return redirect(request.POST["next"])
             else:
