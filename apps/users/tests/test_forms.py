@@ -2,6 +2,7 @@
 
 
 import time
+from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.test.testcases import TestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
@@ -40,7 +41,8 @@ class MySeleniumTests(LiveServerTestCase):
         super().setUpClass()
         cls.selenium = WebDriver()
         cls.selenium.implicitly_wait(10)
-        get_user_model().objects.create_user(
+        user: User = get_user_model()  # type: ignore
+        user.objects.create_user(  # type: ignore
             username="test", email="test@gmail.com", password="Secret"
         )
 
@@ -64,4 +66,4 @@ class MySeleniumTests(LiveServerTestCase):
         time.sleep(1)
         self.selenium.get("%s%s" % (self.live_server_url, "/users/profile"))
         time.sleep(1)
-        assert "test@gmail.com" in self.selenium.page_source
+        self.assertIn(member="test@gmail.com", container=self.selenium.page_source)

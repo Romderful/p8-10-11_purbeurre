@@ -38,7 +38,8 @@ class Product(models.Model):
         my_substitutes = Product.objects.filter(categories__in=substitute_categories)
         for substitute in my_substitutes:
             if substitute not in cleaned_substitutes and substitute != product:
-                cleaned_substitutes.append(substitute)
+                if ord(substitute.grade) <= ord(product.grade):
+                    cleaned_substitutes.append(substitute)
         return cleaned_substitutes
 
 

@@ -12,6 +12,7 @@ django-crispy-forms = "*"
 django-widget-tweaks = "*"
 selenium = "*"
 webdriver-manager = "*"
+pylint-django = "*"
 
 [dev-packages]
 
