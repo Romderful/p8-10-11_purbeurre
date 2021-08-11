@@ -10977,7 +10977,6 @@ header.masthead h1, header.masthead .h1 {
   header.masthead {
     height: 100vh;
     min-height: 40rem;
-    padding-top: 4.5rem;
     padding-bottom: 0;
   }
   header.masthead p {
@@ -11035,7 +11034,6 @@ header.masthead h1, header.masthead .h1 {
 
 .profile-informations {
   text-align: center;
-  margin-top: 15%;
 }
 
 .username {
@@ -11094,6 +11092,7 @@ header.masthead h1, header.masthead .h1 {
 }
 
 .product-images {
+  margin-right: 4%;
   border-radius: 1.5em;
   margin-top: 3em;
   margin-bottom: 2em;

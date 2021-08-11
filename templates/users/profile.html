@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <header class="masthead vh100-header">
-    <div class="container profile-informations">
-        <p class="text-white-75 username">Bonjour {{user.username}}</p>
-        <p class="text-white-75 mb-5">{{user.email}}</p>
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="container profile-informations">
+            <p class="text-white-75 username">Bonjour {{user.username}}</p>
+            <p class="text-white-75 mb-5">{{user.email}}</p>
+        </div>
     </div>
 </header>
 {% endblock %}
