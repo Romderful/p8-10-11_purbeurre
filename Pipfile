@@ -15,6 +15,7 @@ pylint-django = "*"
 whitenoise = "*"
 gunicorn = "*"
 environs = {extras = ["django"], version = "*"}
+django-heroku = "*"
 
 [dev-packages]
 
