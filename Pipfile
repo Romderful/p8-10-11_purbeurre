@@ -6,13 +6,15 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg2 = "*"
-python-dotenv = "*"
 pydocstyle = "*"
 django-crispy-forms = "*"
 django-widget-tweaks = "*"
 selenium = "*"
 webdriver-manager = "*"
 pylint-django = "*"
+whitenoise = "*"
+gunicorn = "*"
+environs = {extras = ["django"], version = "*"}
 
 [dev-packages]
 
