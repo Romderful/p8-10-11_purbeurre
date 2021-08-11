@@ -141,7 +141,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # End the user's session
 SESSION_COOKIE_AGE = 1800
 
-AUTHENTICATION_BACKENDS = ["apps.users.authenticate.EmailAuthenticate"]
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "apps.users.authenticate.EmailAuth",
+]
 LOGIN_URL = "/users/sign_in"
 
 AUTH_USER_MODEL = "users.User"

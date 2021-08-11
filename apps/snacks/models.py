@@ -1,8 +1,8 @@
 """Snacks models."""
 
 
+from config import settings
 from django.db import models
-from apps.users.models import User
 
 
 class Category(models.Model):
@@ -45,5 +45,5 @@ class Product(models.Model):
 class Substitute(models.Model):
     """Substitute table."""
 
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
