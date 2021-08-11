@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Product, Substitute
-from django.contrib.auth.models import User
+from apps.users.authenticate import get_user_model
 
 
 def search_product(request):
@@ -39,7 +39,7 @@ def detail_product(request, id):
 def save_substitute(request, id):
     """Save the wanted substitute."""
     user_email = request.session["user_email"]
-    user = User.objects.get(email=user_email)
+    user = get_user_model().objects.get(email=user_email)
     product = Product.objects.get(pk=id)
     if not Substitute.objects.filter(user=user, product=product).exists():
         messages.success(request, "Article enregistré !")
