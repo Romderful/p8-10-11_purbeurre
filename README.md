@@ -1,8 +1,8 @@
 # Pur Beurre - Openclassrooms project 8
 
-This project offers a plateform for people in need of a snack, but are looking for something healthy.
-A quick search can be done from the main page, and the site offers a list of substitutes in the same category, ordered from the best nutriscore to the worst.
-If the user created its account and profile, it can also add a product to its favourites.
+This project offers a platform for people in need of a product's substitute having an equal or a better nutriscore grade.
+A quick search can be done from the main page, also from the navbar, it will return a list of substitutes corresponding to the searched product's categories.
+If the user created his account, he will also be able to add a product to his favourites.
 
 ## Installation
 
