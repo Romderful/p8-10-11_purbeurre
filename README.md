@@ -28,6 +28,9 @@ DJANGO_SECRET_KEY="DJANGO_SECRET_KEY"
 ## Usage
 
 ```bash
+
+create a database using postgresql having the same name as DB_USER
+
 python manage.py migrate # create the migrations
 python manage.py fill_database # use the custom command to implement the dabatase
 python manage.py runserver # start the local server
