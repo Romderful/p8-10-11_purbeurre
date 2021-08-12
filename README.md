@@ -4,6 +4,8 @@ This project offers a platform for people in need of a product's substitute havi
 A quick search can be done from the main page, also from the navbar, it will return a list of substitutes corresponding to the searched product's categories.
 If the user created his account, he will also be able to add a product to his favourites.
 
+The project can be seen at this address : https://rr-purbeurre.herokuapp.com/
+
 ## Installation
 
 Clone [the repository](https://github.com/Romderful/p8_purbeurre) on your computer.
