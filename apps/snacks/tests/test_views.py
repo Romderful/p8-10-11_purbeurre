@@ -37,17 +37,17 @@ class TestViews(TestCase):
 
     def test_search_product(self):
         """Test search_product view."""
-        response = self.client.get(self.search_product_url)
-        if self.assertEquals(response.status_code, 200):
-            self.assertTemplateUsed(response, "snacks/notfound.html")
-        elif self.assertEquals(response.status_code, 200):
-            self.assertTemplateUsed(response, "snacks/search.html")
+        first_response = self.client.get(f"{self.search_product_url}?query=testname")
+        second_response = self.client.get(f"{self.search_product_url}?query=")
+        if self.assertEquals(first_response.status_code, 200):
+            self.assertTemplateUsed(first_response, "snacks/search.html")
+        elif self.assertEquals(second_response.status_code, 200):
+            self.assertTemplateUsed(second_response, "snacks/notfound.html")
 
     def test_detail_product(self):
         """Test detail_product view."""
         response = self.client.get(self.detail_product_url)
-        if self.assertEquals(response.status_code, 200):
-            self.assertTemplateUsed(response, "snacks/detail.html")
+        self.assertTemplateUsed(response, "snacks/detail.html")
 
     def test_save_subtitute(self):
         """Test save_substitute view."""
