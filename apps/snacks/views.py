@@ -49,4 +49,4 @@ def save_substitute(request, id):
         Substitute.objects.create(user=user, product=product)
     else:
         messages.error(request, "Article déjà possédé ! ")
-    return redirect(request.META["HTTP_REFERER"])
+    return redirect(request.META.get("HTTP_REFERER", "/"))
