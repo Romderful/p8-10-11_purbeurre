@@ -25,6 +25,14 @@ class ProductTests(TestCase):
             proteins=1.0,
         )
 
+        self.category = Category.objects.create(
+            id=1,
+            name="testcategory",
+        )
+
+        cat_snacks = Category.objects.get(name="testcategory")
+        self.product.categories.add(cat_snacks)
+
     def test_product_content(self):
         """Test the database entries."""
         self.assertEqual(f"{self.product.name}", "testname")
@@ -38,6 +46,12 @@ class ProductTests(TestCase):
         self.assertEqual(f"{self.product.sugars}", "1.0")
         self.assertEqual(f"{self.product.fats}", "1.0")
         self.assertEqual(f"{self.product.proteins}", "1.0")
+
+    def test_get_substitute(self):
+        """Test get_substitute."""
+        my_product = Product()
+        result = my_product.get_substitutes(self.product)
+        self.assertNotIn(self.product, result)
 
 
 class CategoryTests(TestCase):
