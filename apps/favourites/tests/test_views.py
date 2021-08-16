@@ -1,6 +1,7 @@
 """Test the views."""
 
 
+from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from django.urls import reverse
 
@@ -11,14 +12,16 @@ class TestViews(TestCase):
     def setUp(self):
         """Set up config."""
         self.client = Client()
-        self.sign_in_url = reverse("sign_in")
+        self.session = self.client.session
+        self.session["user_email"] = "test@email.com"
+        self.session.save()
         self.my_favourites_url = reverse("my_favourites")
 
-    def test_get_favourites_get(self):
+    def test_get_favourites(self):
         """Test get_favourites view."""
-        first_response = self.client.get(self.my_favourites_url)
-        second_response = self.client.get(self.sign_in_url)
-        if self.assertEquals(first_response.status_code, 302):
-            self.assertTemplateUsed(first_response, "favourites/favourites.html")
-        elif self.assertEquals(second_response.status_code, 200):
-            self.assertTemplateUsed(second_response, "users/sign_in.html")
+        self.client.force_login(
+            get_user_model().objects.get_or_create(email=self.session["user_email"])[0]
+        )
+        response = self.client.get(self.my_favourites_url)
+        if self.assertEquals(response.status_code, 200):
+            self.assertTemplateUsed(response, "favourites/favourites.html")

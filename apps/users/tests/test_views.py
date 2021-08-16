@@ -16,7 +16,7 @@ class TestViews(TestCase):
         self.profile_url = reverse("profile")
         self.home_url = reverse("home")
 
-    def test_sign_up_get(self):
+    def test_sign_up(self):
         """Test sign_up view."""
         first_response = self.client.get(self.sign_up_url)
         second_response = self.client.get(self.home_url)
@@ -25,7 +25,7 @@ class TestViews(TestCase):
         elif self.assertEquals(second_response.status_code, 200):
             self.assertTemplateUsed(second_response, "home/home.html")
 
-    def test_sign_in_get(self):
+    def test_sign_in(self):
         """Test sign_in view."""
         first_response = self.client.get(self.sign_in_url)
         second_response = self.client.get(self.home_url)
@@ -34,7 +34,7 @@ class TestViews(TestCase):
         elif self.assertEquals(second_response.status_code, 200):
             self.assertTemplateUsed(second_response, "home/home.html")
 
-    def test_profile_get(self):
+    def test_profile(self):
         """Test profile view."""
         first_response = self.client.get(self.sign_in_url)
         second_response = self.client.get(self.profile_url)
@@ -43,7 +43,7 @@ class TestViews(TestCase):
         elif self.assertEquals(second_response.status_code, 302):
             self.assertTemplateUsed(second_response, "users/profile.html")
 
-    def test_sign_out_get(self):
+    def test_sign_out(self):
         """Test sign_out view."""
         response = self.client.get(self.home_url)
         self.assertEquals(response.status_code, 200)

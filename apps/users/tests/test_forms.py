@@ -31,7 +31,7 @@ class TestForms(TestCase):
         self.assertEquals(len(form.errors), 4)
 
 
-class MySeleniumTests(StaticLiveServerTestCase):
+class MySeleniumSignInTests(StaticLiveServerTestCase):
     """Selenium tests."""
 
     @classmethod

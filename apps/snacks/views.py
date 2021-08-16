@@ -9,7 +9,10 @@ from apps.users.authenticate import get_user_model
 
 
 def search_product(request):
-    """Return the search page which contains the requested product with its substitutes."""
+    """Return the search page.
+
+    Contains the requested product with its substitutes.
+    """
     product_found = Product()
     try:
         query = request.GET.get("query")
