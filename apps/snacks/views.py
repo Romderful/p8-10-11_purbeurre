@@ -13,20 +13,19 @@ def search_product(request):
 
     Contains the requested product with its substitutes.
     """
-    product_found = Product()
     try:
         query = request.GET.get("query")
         if not query:
             raise IndexError
-        product = Product.objects.filter(name__icontains=query).first()
+        product_found = Product.objects.filter(name__icontains=query).first()
         try:
-            substitutes_list = product_found.get_substitutes(product)
+            substitutes_list = product_found.get_substitutes()  # type: ignore
             paginator = Paginator(substitutes_list, 6)
             page = request.GET.get("page")
             substitutes = paginator.get_page(page)
         except AttributeError:
             return render(request, "snacks/notfound.html")
-        context = {"product": product, "substitutes": substitutes, "query": query}
+        context = {"product": product_found, "substitutes": substitutes, "query": query}
         return render(request, "snacks/search.html", context)
     except IndexError:
         return render(request, "snacks/notfound.html")

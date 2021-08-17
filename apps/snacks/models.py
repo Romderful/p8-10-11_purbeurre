@@ -27,17 +27,17 @@ class Product(models.Model):
     proteins = models.FloatField(null=True)
     categories = models.ManyToManyField(Category)
 
-    def get_substitutes(self, product):
+    def get_substitutes(self):
         """Return the substitutes queryset."""
         cleaned_substitutes = []
         substitute_categories = []
-        product_categories = product.categories.all()
+        product_categories = self.categories.all()
         for category in product_categories:
             substitute_categories.append(category.id)
         my_substitutes = Product.objects.filter(categories__in=substitute_categories)
         for substitute in my_substitutes:
-            if substitute not in cleaned_substitutes and substitute != product:
-                if ord(substitute.grade) <= ord(product.grade):
+            if substitute not in cleaned_substitutes and substitute != self:
+                if ord(substitute.grade) <= ord(self.grade):
                     cleaned_substitutes.append(substitute)
         return cleaned_substitutes
 
