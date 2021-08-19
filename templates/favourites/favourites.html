@@ -7,6 +7,7 @@
             <div class="col-lg-12 favourite-result">
                 <img class="favourite-images" src="{{favourite.image}}">
                 <a class="favourite-text" href="{% url "detail_product" id=favourite.id %}">{{favourite.name}}</a>
+                <a href="{% url "delete_favourite" id=favourite.id %}">Supprimer</a>
             </div>
         {% endfor %}
         </div>

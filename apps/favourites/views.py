@@ -3,9 +3,9 @@
 
 from django.contrib.auth.decorators import login_required
 from apps.users.authenticate import get_user_model
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
-from apps.snacks.models import Substitute
+from apps.snacks.models import Substitute, Product
 
 
 @login_required
@@ -22,3 +22,12 @@ def get_favourites(request):
     favourites = paginator.get_page(page)
     context = {"favourites": favourites}
     return render(request, "favourites/favourites.html", context)
+
+
+def delete_favourite(request, id):
+    """Delete a saved substitute."""
+    user_email = request.session["user_email"]
+    user = get_user_model().objects.get(email=user_email)
+    product = Product.objects.get(pk=id)
+    Substitute.objects.filter(user=user, product=product).delete()
+    return redirect(request.META.get("HTTP_REFERER", "/"))
