@@ -11124,12 +11124,13 @@ header.masthead h1, header.masthead .h1 {
 
 .favourite-result {
   display: flex;
+  flex-wrap: wrap;
   background-color: rgb(0, 0, 0, 0.2);
   border-radius: 2em;
   width: 90%;
   padding: 1em;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 7%;
+  padding-right: 7%;
   margin-bottom: 1em;
   align-items: center;
 }
