@@ -5,6 +5,7 @@
         <div class="container profile-informations">
             <p class="text-white-75 username">Bonjour {{user.username}}</p>
             <p class="text-white-75 mb-5">{{user.email}}</p>
+            <a href="{% url 'password_change' %}">Changez votre mot de passe</a>
         </div>
     </div>
 </header>

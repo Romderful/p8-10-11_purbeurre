@@ -1,18 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-<header class="masthead vh100-header">
+<header class="masthead auto-header">
     <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <form class="sign-form" method="POST" novalidate>
                 {% csrf_token %}
-                {% for field in form %}
-                    <div class="form-group">
-                        {{field}}
-                    <div class="text-danger">
-                        {{field.errors.as_text|cut:"*"}}
-                    </div>
-                    </div>
-                {% endfor %}
+                {{ form|crispy }}
             <button type="submit" class="btn btn-primary">Créez votre compte</button>
             </form>
         </div>

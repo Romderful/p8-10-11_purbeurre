@@ -13,11 +13,11 @@ class TestViews(TestCase):
         client = Client()
         response = client.get(reverse("home"))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "home/home.html")
+        self.assertTemplateUsed(response, "pages/home.html")
 
     def test_legal_notice(self):
         """Test legal_notice view."""
         client = Client()
         response = client.get(reverse("legal_notice"))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "home/legal_notice.html")
+        self.assertTemplateUsed(response, "pages/legal_notice.html")

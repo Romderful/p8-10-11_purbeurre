@@ -11,6 +11,7 @@ class EmailAuth:
     """Email authentication."""
 
     def authenticate(self, request, email=None, password=None, **kwargs):
+        """Authenticate."""
         if email is None:
             email = kwargs.get(UserModel.EMAIL_FIELD)  # type: ignore
         try:
@@ -24,14 +25,16 @@ class EmailAuth:
                 return user
 
     def user_can_authenticate(self, user):
-        """
-        Reject users with is_active=False. Custom user models that don't have
+        """Reject users with is_active=False.
+
+        Custom user models that don't have
         that attribute are allowed.
         """
         is_active = getattr(user, "is_active", None)
         return is_active or is_active is None
 
     def get_user(self, user_id):
+        """Get user."""
         try:
             user = UserModel._default_manager.get(pk=user_id)
         except UserModel.DoesNotExist:

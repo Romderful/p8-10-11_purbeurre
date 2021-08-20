@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Pur Beurre</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.png' %}" />
     <!-- Bootstrap Icons-->
@@ -50,10 +50,10 @@
                             </div>
                             <div class="col-4">
                                 {% if user.is_authenticated %}
-                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "sign_out" %}"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "logout" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_login.png' %}"></img><p class="nav-link">Déconnecter</p></a></li>
                                 {% else %}
-                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "sign_in" %}"><img class="my-logos"
+                                <li class="nav-item align-logos"><a class="nav-text" href="{% url "login" %}"><img class="my-logos"
                                             src="{% static 'assets/img/noun_login.png' %}"></img><p class="nav-link">Connecter</p></a></li>
                                 {% endif %}
                             </div>
