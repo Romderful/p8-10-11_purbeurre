@@ -1,4 +1,4 @@
-# Pur Beurre - Openclassrooms project 8
+# Pur Beurre - Openclassrooms project 8-11
 
 This project offers a platform for people in need of a product's substitute having an equal or a better nutriscore grade.
 A quick search can be done from the main page, also from the navbar, it will return a list of substitutes corresponding to the searched product's categories.
