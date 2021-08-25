@@ -5,7 +5,7 @@ from apps.accounts.models import CustomUser
 from django.test.testcases import TestCase
 from apps.accounts.forms import CustomUserCreationForm
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium import webdriver
 from config import settings
 
 
@@ -38,8 +38,11 @@ class MySeleniumSignInTests(StaticLiveServerTestCase):
     def setUpClass(cls):
         """Set up."""
         super().setUpClass()
-        cls.selenium = WebDriver(
-            executable_path=str(settings.BASE_DIR / "webdrivers" / "chromedriver")
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        cls.selenium = webdriver.Chrome(
+            executable_path=str(settings.BASE_DIR / "webdrivers" / "chromedriver"),
+            options=chrome_options,
         )
         cls.selenium.implicitly_wait(10)
         CustomUser.objects.create_user(  # type: ignore
