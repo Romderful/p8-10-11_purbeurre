@@ -11189,6 +11189,7 @@ header.masthead h1, header.masthead .h1 {
 
 .vh100-header {
   height: 100vh;
+  padding: 4%;
 }
 
 .auto-header {
