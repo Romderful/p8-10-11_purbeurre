@@ -11192,6 +11192,7 @@ header.masthead h1, header.masthead .h1 {
 }
 
 .auto-header {
+  min-height: 100vh;
   height: auto;
 }
 
