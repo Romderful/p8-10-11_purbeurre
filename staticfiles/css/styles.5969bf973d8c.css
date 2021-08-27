@@ -11038,12 +11038,9 @@ header.masthead h1, header.masthead .h1 {
 }
 
 .username {
-  border-radius: 2em;
-  padding: 1.5em;
+  padding: 2.5em;
+  margin-top: 4%;
   margin-bottom: 4em;
-  max-width: 15em;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #f4623a;
 }
 
@@ -11192,6 +11189,7 @@ header.masthead h1, header.masthead .h1 {
 }
 
 .auto-header {
+  min-height: 100vh;
   height: auto;
 }
 
