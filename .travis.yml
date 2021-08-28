@@ -1,15 +1,23 @@
 language: python
 
 python:
-    - '3.9'
+  - '3.9'
+
+addons:
+  chrome: stable
+  firefox: latest
+
+install:
+  - pip install tchappui-webdrivers
 
 before_script:
-    - 'pipenv install'
+  - install-webdrivers --path /usr/local/bin/
+  - pipenv install
 
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
 
 services:
-    - postgresql
+  - postgresql
 
 script: 
-    - python manage.py test
+  - python manage.py test
