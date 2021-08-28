@@ -1,4 +1,5 @@
 .*
 !.gitignore
+!.travis.yml
 __*
 !__init__.py
