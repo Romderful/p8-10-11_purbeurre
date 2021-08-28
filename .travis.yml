@@ -11,7 +11,7 @@ install:
   - pip install tchappui-webdrivers
 
 before_script:
-  - install-webdrivers --path /usr/local/bin/
+  - sudo install-webdrivers --path /usr/local/bin/
   - pipenv install
 
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
