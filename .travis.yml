@@ -7,11 +7,10 @@ addons:
   chrome: stable
   firefox: latest
 
-install:
-  - pip install tchappui-webdrivers
-
 before_script:
-  - sudo install-webdrivers --path /usr/local/bin/
+  - "wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar"
+  - "java -jar selenium-server-standalone-2.53.0.jar > /dev/null &"
+  - sleep 3
   - pipenv install
 
 env: DJANGO_SETTINGS_MODULE=config.settings.travis
