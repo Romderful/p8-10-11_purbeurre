@@ -22,6 +22,7 @@ class Command(BaseCommand):
     def __init__(self):
         """Initialise."""
         super().__init__()
+        self.product_number = 5000
         self.max_products = 0
         self.valid_products = []
 
@@ -84,7 +85,7 @@ class Command(BaseCommand):
 
     def run(self):
         """Launch the script from this function."""
-        user_choice = int(input("How many products do you want to add ? : "))
+        user_choice = self.product_number
         self.max_products = user_choice
         page = 1
         while len(self.valid_products) <= self.max_products:
@@ -112,7 +113,7 @@ class Command(BaseCommand):
             if "salt_100g" in product[NUTRIMENTS]:
                 salt = product[NUTRIMENTS]["salt_100g"]
 
-            created_product = Product.objects.create(
+            created_product, created = Product.objects.update_or_create(
                 name=product[NAME],
                 description=product[DESCRIPTION],
                 store=product[STORE],
