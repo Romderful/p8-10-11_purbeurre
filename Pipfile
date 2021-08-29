@@ -18,6 +18,7 @@ flake8 = "*"
 pydocstyle = "*"
 coverage = "*"
 django-crispy-forms = "*"
+tchappui-webdrivers = "*"
 
 [dev-packages]
 

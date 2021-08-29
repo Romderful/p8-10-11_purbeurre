@@ -4,19 +4,24 @@ python:
   - '3.9'
 
 addons:
+  # ajouter uniquement les navigateurs utilisés
   chrome: stable
   firefox: latest
-
-before_script:
-  - "wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar"
-  - "java -jar selenium-server-standalone-2.53.0.jar > /dev/null &"
-  - sleep 3
+    
+install:
+  - pip install pipenv
   - pipenv install
 
-env: DJANGO_SETTINGS_MODULE=config.settings.travis
+before_script:
+  # ajouter tchappui-webdrivers dans requirements.txt
+  - install-webdrivers --path webdrivers
+
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE="config.settings.travis"
 
 services:
   - postgresql
 
-script: 
-  - python manage.py test
+script:
+  - python manage.py test -v
