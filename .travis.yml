@@ -4,7 +4,6 @@ python:
   - '3.9'
 
 addons:
-  # ajouter uniquement les navigateurs utilisés
   chrome: stable
   firefox: latest
 
@@ -17,7 +16,7 @@ install:
   - pipenv install
 
 before_script:
-  # ajouter tchappui-webdrivers dans requirements.txt
+  # pipenv install tchappui-webdrivers
   - install-webdrivers --path webdrivers
 
 env:
