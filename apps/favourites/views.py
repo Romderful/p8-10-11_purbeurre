@@ -12,7 +12,7 @@ from apps.snacks.models import Substitute, Product
 def get_favourites(request):
     """Return the user's favourites page."""
     current_user = request.user
-    user = get_user_model().objects.get(id=current_user.id)
+    user = get_user_model().objects.all().first()
     favs = Substitute.objects.filter(user=user)
     favourites = []
     for fav in favs:
