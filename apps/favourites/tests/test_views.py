@@ -17,6 +17,7 @@ class TestViews(TestCase):
         self.session["user_email"] = "test@email.com"
         self.session.save()
         self.my_favourites_url = reverse("my_favourites")
+        self.delete_favourite_url = reverse("delete_favourite", args=["1"])
 
         User = get_user_model()
         self.user = User.objects.create_user(  # type: ignore
@@ -39,13 +40,19 @@ class TestViews(TestCase):
 
     def test_get_favourites(self):
         """Test get_favourites view."""
-        self.client.force_login(self.user)  # type: ignore
+        self.client.force_login(self.user)
         response = self.client.get(self.my_favourites_url)
         if self.assertEquals(response.status_code, 200):
             self.assertTemplateUsed(response, "favourites/favourites.html")
 
+    def test_delete_favourite(self):
+        """Test delete_favourite view."""
+        self.client.force_login(self.user)
+        response = self.client.get(self.delete_favourite_url)
+        self.assertEquals(response.status_code, 302)
+
     def test_favourite_in_context(self):
         """Test product is in favourites context."""
-        self.client.force_login(self.user)  # type: ignore
+        self.client.force_login(self.user)
         response = self.client.get(self.my_favourites_url)
         self.assertIn(self.product, response.context["favourites"])

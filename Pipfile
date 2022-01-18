@@ -19,6 +19,9 @@ pydocstyle = "*"
 coverage = "*"
 django-crispy-forms = "*"
 tchappui-webdrivers = "*"
+nose = "*"
+pinocchio = "*"
+django-nose = "*"
 
 [dev-packages]
 

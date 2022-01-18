@@ -1,12 +1,13 @@
 """Test the forms."""
 
 
-from apps.accounts.models import CustomUser
+# from apps.accounts.models import CustomUser
 from django.test.testcases import TestCase
 from apps.accounts.forms import CustomUserCreationForm
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from selenium import webdriver
-from config import settings
+
+# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+# from selenium import webdriver
+# from config import settings
 
 
 class TestForms(TestCase):
@@ -31,37 +32,37 @@ class TestForms(TestCase):
         self.assertEquals(len(form.errors), 4)
 
 
-class MySeleniumSignInTests(StaticLiveServerTestCase):
-    """Selenium tests."""
+# class MySeleniumSignInTests(StaticLiveServerTestCase):
+#     """Selenium tests."""
 
-    @classmethod
-    def setUpClass(cls):
-        """Set up."""
-        super().setUpClass()
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--headless")
-        cls.selenium = webdriver.Chrome(
-            executable_path=str(settings.BASE_DIR / "webdrivers" / "chromedriver"),
-            options=chrome_options,
-        )
-        cls.selenium.implicitly_wait(10)
-        CustomUser.objects.create_user(  # type: ignore
-            username="test", email="test@gmail.com", password="Secret"
-        )
+#     @classmethod
+#     def setUpClass(cls):
+#         """Set up."""
+#         super().setUpClass()
+#         chrome_options = webdriver.ChromeOptions()
+#         chrome_options.add_argument("--headless")
+#         cls.selenium = webdriver.Chrome(
+#             executable_path=str(settings.BASE_DIR / "webdrivers" / "chromedriver"),
+#             options=chrome_options,
+#         )
+#         cls.selenium.implicitly_wait(10)
+#         CustomUser.objects.create_user(  # type: ignore
+#             username="test", email="test@gmail.com", password="Secret"
+#         )
 
-    @classmethod
-    def tearDownClass(cls):
-        """Tear down."""
-        cls.selenium.quit()
-        super().tearDownClass()
+#     @classmethod
+#     def tearDownClass(cls):
+#         """Tear down."""
+#         cls.selenium.quit()
+#         super().tearDownClass()
 
-    def test_login_and_visit_profile(self):
-        """Login test."""
-        self.selenium.get("%s%s" % (self.live_server_url, "/accounts/login"))
-        username_input = self.selenium.find_element_by_name("username")
-        username_input.send_keys("test@gmail.com")
-        password_input = self.selenium.find_element_by_name("password")
-        password_input.send_keys("Secret")
-        self.selenium.find_element_by_id("sign-in-form").submit()
-        self.selenium.get("%s%s" % (self.live_server_url, "/accounts/profile"))
-        self.assertIn(member="test@gmail.com", container=self.selenium.page_source)
+#     def test_login_and_visit_profile(self):
+#         """Login test."""
+#         self.selenium.get("%s%s" % (self.live_server_url, "/accounts/login"))
+#         username_input = self.selenium.find_element_by_name("username")
+#         username_input.send_keys("test@gmail.com")
+#         password_input = self.selenium.find_element_by_name("password")
+#         password_input.send_keys("Secret")
+#         self.selenium.find_element_by_id("sign-in-form").submit()
+#         self.selenium.get("%s%s" % (self.live_server_url, "/accounts/profile"))
+#         self.assertIn(member="test@gmail.com", container=self.selenium.page_source)
