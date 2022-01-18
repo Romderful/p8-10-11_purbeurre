@@ -6,6 +6,12 @@ If the user created his account, he will also be able to add a product to his fa
 
 The project can be seen at this address : https://www.penguineasy.com
 
+Functionalities added for the project 11 :
+    - Change password
+    - Reset password
+    - Ability to delete favourites
+    - Pagination
+
 ## Installation
 
 Clone [the repository](https://github.com/Romderful/p8_purbeurre) on your computer.
